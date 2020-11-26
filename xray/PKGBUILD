@@ -1,0 +1,40 @@
+# Maintainer: AkinoKaede <autmaple@protonmail.com>
+#Special thanks:  Felix Yan <felixonmars@archlinux.org>
+# Contributor: pandada8 <pandada8@gmail.com>
+
+pkgname=xray
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Xray, Penetrates Everything. Also the best v2ray-core, with XTLS support. Fully compatible configuration. "
+arch=('x86_64')
+url="https://github.com/XTLS/Xray-core"
+license=('MPLv2')
+depends=('glibc' 'v2ray-domain-list-community' 'v2ray-geoip')
+makedepends=('go' 'git')
+backup=(etc/xray/config.json)
+source=("$pkgname-$pkgver.tar.gz::https://github.com/XTLS/Xray-core/archive/v$pkgver.tar.gz")
+sha512sums=('9f0e8f7a885f082780419ac7211a6e6150529d58fa5317ae4dfb61d3a7ba218c')
+
+build() {
+  cd xray-core-$pkgver
+  export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
+  export CGO_LDFLAGS="${LDFLAGS}"
+  export CGO_CFLAGS="${CFLAGS}"
+  export CGO_CPPFLAGS="${CPPFLAGS}"
+  go build -o xray ./main
+}
+
+check() {
+  cd xray-core-$pkgver
+  go test -p 1 -tags json -v -timeout 30m github.com/xtls/xray-core/v1/core/...
+}
+
+package() {
+  install -Dm644 config/systemd/system/v2ray.service "$pkgdir"/usr/lib/systemd/system/xray.service
+  install -Dm644 config/systemd/system/v2ray@.service "$pkgdir"/usr/lib/systemd/system/xray@.service
+  install -Dm644 config/*.json -t "$pkgdir"/etc/xray/
+
+  cd xray-core-$pkgver
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/xray/LICENSE
+  install -Dm755 xray -t "$pkgdir"/usr/bin/
+}
