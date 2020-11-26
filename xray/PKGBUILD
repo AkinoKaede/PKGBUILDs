@@ -13,7 +13,7 @@ depends=('glibc' 'v2ray-domain-list-community' 'v2ray-geoip')
 makedepends=('go' 'git')
 backup=(etc/xray/config.json)
 source=("$pkgname-$pkgver.tar.gz::https://github.com/XTLS/Xray-core/archive/v$pkgver.tar.gz")
-sha512sums=('9f0e8f7a885f082780419ac7211a6e6150529d58fa5317ae4dfb61d3a7ba218c')
+sha512sums=('03c6337ca13e135f7cdaef978bb526c846cd83ff30036764aacaecbf22a9ad79dc661de6f5fd699fbf22fac6833a4aeb5870941c82aee0d74fc60641f858460e')
 
 build() {
   cd xray-core-$pkgver
