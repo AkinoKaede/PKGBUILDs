@@ -10,3 +10,6 @@ AkinoKaede's Arch Linux PKGBUILDs.
 - [xray-bin](xray-bin)
   - [PKGBUILD](xray-bin/PKGBUILD)
   - [AUR](https://aur.archlinux.org/packages/xray-bin/)
+- [xray-git](xray-git)
+  - [PKGBUILD](xray-git/PKGBUILD)
+  - [AUR](https://aur.archlinux.org/packages/xray-git/)
