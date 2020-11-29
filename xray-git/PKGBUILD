@@ -33,7 +33,7 @@ sha512sums=(
 
 pkgver() {
     cd $srcdir/Xray-core
-    printf "%s" "$(git describe --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+    printf "%s" "$(git describe --tags | sed 's/^v//;s/\([^-]*-\)g/r\1/;s/-/./g')"
 }
 
 build() {
