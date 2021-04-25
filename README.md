@@ -2,6 +2,12 @@
 
 AkinoKaede's Arch Linux PKGBUILDs.  
 
+## [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)
+
+- [v2ray-extra](v2ray-extra)
+  - [PKGBUILD](v2ray-extra/PKGBUILD)
+  - [AUR](https://aur.archlinux.org/packages/v2ray-extra/)
+
 ## [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
 
 - [xray](xray)
