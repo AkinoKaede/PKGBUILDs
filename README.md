@@ -2,6 +2,12 @@
 
 AkinoKaede's Arch Linux PKGBUILDs.  
 
+## [SagerNet/SagerConnect](https://github.com/SagerNet/SagerConnect)
+
+- [sagerconnect](sagerconnect)
+  - [PKGBUILD](sagerconnect/PKGBUILD)
+  - [AUR](https://aur.archlinux.org/packages/sagerconnect/)
+
 ## [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)
 
 - [v2ray-browserforwarder](v2ray-browserforwarder)
